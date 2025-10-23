@@ -1,0 +1,33 @@
+cara ubah koneksi database
+1. buka file app/config/databese.php
+2. ganti nama kolom database
+
+cara ubah namaa tabel
+1. buka file app/models/tugasmodels.php
+2. ganti isi $table=... nama table
+
+cara ubah route
+1. buka file app/config/routes.php
+2. ubah isi dari fungsi ini $routes->get('/', 'Home::index123');
+"/" = nama route 
+Home = nama controler
+index123= nama fungsi
+
+cara nampilin view di controler 
+1. buka file app/controler/Home.php
+2. buat fungsi dengan isi echo view ("header")
+contoh : 
+ public function index123()
+    {
+        $tugasModel = new TugasModel();
+        $data['tugas'] = $tugasModel->findAll();
+        echo view('headerx');
+        echo view('sidebar');
+        echo view('index', $data);
+        echo view('footer');
+    }
+
+cara nampilin data tugas di controler 
+1. panggil class tugas models 
+contoh :  $tugasModel = new TugasModel();
+2. panggil fungsi findAll untuk nampilin semua data tugas dari table tb_listx
